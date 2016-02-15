@@ -1,0 +1,19 @@
+#!/usr/bin/cfcf/cfc
+#gcc -o %s %s -std=c99
+
+#include<stdio.h>
+#define CGI(STR,...)	printf(STR,##__VA_ARGS__);putchar('\n');
+int main(){
+	char* str="Hello, C";
+	CGI("Content-Type: text/html; charset=utf-8\n\n");
+	CGI("<html>");
+	CGI("<head>");
+	CGI("	<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />");
+	CGI("</head>");
+	CGI("<body>");
+	CGI("	<p>%s</p>",str);
+	CGI("</body>");
+	CGI("</html>");
+	return 0;
+}
+
